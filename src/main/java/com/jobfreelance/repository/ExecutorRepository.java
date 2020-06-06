@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExecutorRepository extends JpaRepository<ExecutorEntity, Integer> {
+    ExecutorEntity getByCustomerUuid(String uuid);
 }

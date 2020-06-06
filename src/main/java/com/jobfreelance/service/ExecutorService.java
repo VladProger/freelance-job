@@ -15,14 +15,14 @@ public class ExecutorService {
     private final ExecutorRepository executorRepository;
 
     public ExecutorDto getExecutorByUcdmId(String ucdmId){
-       // return executorTranslator.mapEntityToDto(executorRepository.getByExecutorId(ucdmId));
-        return null;
+       ExecutorEntity entity = executorRepository.getByCustomerUuid(ucdmId);
+       return new ExecutorDto(entity.getCustomerUuid(), entity.getCategoryId());
     }
 
     public Boolean addNewExecutor(CreateExecutorRequest request){
         ExecutorEntity entity = new ExecutorEntity();
         entity.setCustomerUuid(request.getCustomerUuid());
         entity.setCategoryId(request.getCategoryId());
-        return executorRepository.save(entity).getId() == null;
+        return executorRepository.save(entity).getId() != null;
     }
 }
