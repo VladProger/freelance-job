@@ -5,24 +5,22 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "executor")
-public class ExecutorEntity {
+public class CommentEntity {
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Integer id;
+
+    @Column(name = "text")
+    private String text;
 
     @Column(name = "customer_uuid")
     private String customerUuid;
 
-    @Column(name = "category_id")
-    private Integer categoryId;
-
+    @Column(name = "is_anonym")
+    private Boolean isAnonym;
 }
