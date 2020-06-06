@@ -1,20 +1,29 @@
 package com.jobfreelance.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "customer_details")
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDetailsEntity {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,8 +41,8 @@ public class CustomerDetailsEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "pnohe_number")
-    private String pnoheNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     @Column(name = "is_enabled")
     private Boolean isEnabled;
@@ -45,5 +54,5 @@ public class CustomerDetailsEntity {
     private String country;
 
     @Column(name = "customer_uuid")
-    private String customer_uuid;
+    private String customerUuid;
 }
