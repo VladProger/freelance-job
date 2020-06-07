@@ -41,7 +41,7 @@ public class CustomerDetailsEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", updatable = false)
     private String phoneNumber;
 
     @Column(name = "is_enabled")

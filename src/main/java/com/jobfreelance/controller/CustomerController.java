@@ -28,4 +28,9 @@ public class CustomerController {
     public void createCustomerDetails(@RequestBody @Valid CustomerDetailsDto request){
         customerService.createCustomerDetails(request);
     }
+
+    @PostMapping("/update")
+    public void updateCustomerInfo(@RequestBody @Valid CustomerDetailsDto request){
+        customerService.updateCustomerInfo(request);
+    }
 }

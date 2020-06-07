@@ -23,17 +23,12 @@ public class CustomerDetailsDto {
 
     private Integer age;
 
-    @NotBlank
     private String email;
-
-    @NotBlank
-    private String phoneNumber;
-
-    private Boolean isEnabled;
 
     private String city;
 
     private String country;
 
+    @NotBlank
     private String customerUuid;
 }
