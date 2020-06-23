@@ -24,4 +24,7 @@ public class ExecutorEntity {
     @Column(name = "category_id")
     private Integer categoryId;
 
+    @Column(name = "description")
+    private String description;
+
 }

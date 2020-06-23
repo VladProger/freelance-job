@@ -14,15 +14,24 @@ public class ExecutorService {
 
     private final ExecutorRepository executorRepository;
 
-    public ExecutorDto getExecutorByUcdmId(String ucdmId){
-       ExecutorEntity entity = executorRepository.getByCustomerUuid(ucdmId);
-       return new ExecutorDto(entity.getCustomerUuid(), entity.getCategoryId());
+    public ExecutorDto getExecutorByUcdmId(String ucdmId) {
+        ExecutorEntity entity = executorRepository.getByCustomerUuid(ucdmId);
+        return new ExecutorDto(entity.getCustomerUuid(), entity.getCategoryId(), entity.getDescription());
     }
 
-    public Boolean addNewExecutor(CreateExecutorRequest request){
+    public Boolean addNewExecutor(CreateExecutorRequest request) {
         ExecutorEntity entity = new ExecutorEntity();
         entity.setCustomerUuid(request.getCustomerUuid());
         entity.setCategoryId(request.getCategoryId());
         return executorRepository.save(entity).getId() != null;
+    }
+
+    public void updateDescription(String uuid, String description) {
+        ExecutorEntity entity = executorRepository.getByCustomerUuid(uuid);
+        if (entity.getDescription().equals(description))
+            return;
+        
+        entity.setDescription(description);
+        executorRepository.save(entity);
     }
 }

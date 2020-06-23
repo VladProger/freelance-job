@@ -2,6 +2,7 @@ package com.jobfreelance.controller;
 
 import com.jobfreelance.dto.request.CreateExecutorRequest;
 import com.jobfreelance.dto.ExecutorDto;
+import com.jobfreelance.dto.request.EditDesciptionRequest;
 import com.jobfreelance.service.ExecutorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,5 +29,10 @@ public class ExecutorController {
     @PostMapping("/create-executor")
     public Boolean createExecutor(@RequestBody @Valid CreateExecutorRequest request){
         return executorService.addNewExecutor(request);
+    }
+
+    @PostMapping("/description")
+    public void updateDescription(@RequestBody EditDesciptionRequest request){
+        executorService.updateDescription(request.getCustomerUuid(), request.getDescription());
     }
 }

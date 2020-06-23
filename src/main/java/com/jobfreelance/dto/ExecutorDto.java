@@ -13,4 +13,6 @@ public class ExecutorDto {
     private String customerUuid;
     
     private Integer categoryId;
+
+    private String description;
 }
