@@ -55,4 +55,7 @@ public class CustomerDetailsEntity {
 
     @Column(name = "customer_uuid")
     private String customerUuid;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
 }

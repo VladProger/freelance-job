@@ -1,4 +1,4 @@
-package com.jobfreelance.dto;
+package com.jobfreelance.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

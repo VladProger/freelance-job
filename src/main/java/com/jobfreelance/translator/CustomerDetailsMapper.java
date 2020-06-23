@@ -19,7 +19,8 @@ public class CustomerDetailsMapper extends BidirectionalMapper {
         .fieldAToB("email", "email")
         .fieldAToB("customerUuid", "customerUuid")
         .fieldAToB("city", "city")
-        .fieldAToB("country", "country");
+        .fieldAToB("country", "country")
+        .fieldAToB("photoUrl", "photoUrl");
 
     }
 }

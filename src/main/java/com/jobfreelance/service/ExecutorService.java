@@ -1,7 +1,7 @@
 package com.jobfreelance.service;
 
 
-import com.jobfreelance.dto.CreateExecutorRequest;
+import com.jobfreelance.dto.request.CreateExecutorRequest;
 import com.jobfreelance.dto.ExecutorDto;
 import com.jobfreelance.entity.ExecutorEntity;
 import com.jobfreelance.repository.ExecutorRepository;

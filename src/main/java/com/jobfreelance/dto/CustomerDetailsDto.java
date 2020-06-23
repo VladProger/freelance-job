@@ -13,10 +13,8 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class CustomerDetailsDto {
 
-    @NotBlank
     private String firstName;
 
-    @NotBlank
     private String lastName;
 
     private String secondName;
@@ -31,4 +29,6 @@ public class CustomerDetailsDto {
 
     @NotBlank
     private String customerUuid;
+
+    private String photoUrl;
 }
