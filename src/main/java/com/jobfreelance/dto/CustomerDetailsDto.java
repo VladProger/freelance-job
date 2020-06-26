@@ -27,7 +27,7 @@ public class CustomerDetailsDto {
 
     private String country;
 
-    @NotBlank
+
     private String customerUuid;
 
     private String photoUrl;
