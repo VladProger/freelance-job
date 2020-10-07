@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,5 +15,5 @@ public class CreateExecutorRequest {
     private Integer categoryId;
 
     @NotBlank
-    private String customerUuid;
+    private UUID customerUuid;
 }

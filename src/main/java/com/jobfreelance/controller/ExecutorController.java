@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,8 +23,8 @@ public class ExecutorController {
     private final ExecutorService executorService;
 
     @GetMapping("{uuid}")
-    public ExecutorDto getExecutorByUcdmId(@PathVariable(name = "uuid") String ucdmid){
-        return executorService.getExecutorByUcdmId(ucdmid);
+    public ExecutorDto getExecutorByUcdmId(@PathVariable(name = "uuid") UUID ucdmid){
+        return executorService.getExecutorByUcdmId(ucdmid.toString());
     }
 
     @PostMapping("/create-executor")
@@ -33,6 +34,6 @@ public class ExecutorController {
 
     @PostMapping("/description")
     public void updateDescription(@RequestBody EditDesciptionRequest request){
-        executorService.updateDescription(request.getCustomerUuid(), request.getDescription());
+        executorService.updateDescription(request.getCustomerUuid().toString(), request.getDescription());
     }
 }

@@ -21,7 +21,7 @@ public class ExecutorService {
 
     public Boolean addNewExecutor(CreateExecutorRequest request) {
         ExecutorEntity entity = new ExecutorEntity();
-        entity.setCustomerUuid(request.getCustomerUuid());
+        entity.setCustomerUuid(request.getCustomerUuid().toString());
         entity.setCategoryId(request.getCategoryId());
         return executorRepository.save(entity).getId() != null;
     }

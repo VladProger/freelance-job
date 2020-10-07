@@ -28,17 +28,17 @@ public class CustomerService {
     }
 
     public void createCustomerDetails(CustomerDetailsDto customerDetailsDto) {
-        customerDetailsDto.setCustomerUuid(UUID.randomUUID().toString());
+        customerDetailsDto.setCustomerUuid(UUID.randomUUID());
         saveDetails(customerDetailsTranslator.translateToEntity(customerDetailsDto));
     }
 
     public void updateCustomerInfo(CustomerDetailsDto detailsDto){
-        CustomerDetailsEntity entity = customerDetailsRepository.getByCustomerUuid(detailsDto.getCustomerUuid());
+        CustomerDetailsEntity entity = customerDetailsRepository.getByCustomerUuid(detailsDto.getCustomerUuid().toString());
         if(entity==null)
             throw new BadRequestException("No such user found");
         customerDetailsTranslator.updateEntityByDto(detailsDto, entity);
 
-        saveDetails(entity);
+        customerDetailsRepository.save(entity);
     }
 
     private void saveDetails(CustomerDetailsEntity entity){

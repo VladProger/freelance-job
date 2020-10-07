@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import java.util.UUID;
+
 
 @Getter
 @Setter
@@ -27,8 +28,7 @@ public class CustomerDetailsDto {
 
     private String country;
 
-
-    private String customerUuid;
+    private UUID customerUuid;
 
     private String photoUrl;
 }

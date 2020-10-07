@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "com.jobfreelance.entity")
 public class SpringSecurityJpaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityJpaApplication.class, args);
-	}
+		public static void main(String[] args) {
+			SpringApplication.run(SpringSecurityJpaApplication.class, args);
+		}
 
 }
