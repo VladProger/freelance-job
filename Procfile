@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.jobfreelance.SpringSecurityJpaApplication
+web: java -jar target/spring-security-jpa-0.0.1-SNAPSHOT.jar
