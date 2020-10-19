@@ -23,11 +23,12 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private PasswordEncoder bcryptEncoder;
 
-    public UserCredentialsDto getUserByUcdmId(String ucdmId) throws UsernameNotFoundException {
-        UserEntity user = userDao.findByUcdmId(ucdmId);
+    public UserCredentialsDto getUserByUserName(String username) throws UsernameNotFoundException {
+        UserEntity user = userDao.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found with ucdmId: " + ucdmId);
+            throw new UsernameNotFoundException("User not found with username: " + username);
         }
+
         return UserCredentialsDto.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
@@ -44,7 +45,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserCredentialsDto user = getUserByUcdmId(username);
+        UserCredentialsDto user = getUserByUserName(username);
         return new User(user.getUsername(), user.getPassword(), new ArrayList<>());
     }
 }

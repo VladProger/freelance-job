@@ -36,7 +36,7 @@ public class JwtAuthenticationController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-        final UserCredentialsDto userDetails = userDetailsService.getUserByUcdmId(authenticationRequest.getUsername());
+        final UserCredentialsDto userDetails = userDetailsService.getUserByUserName(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails.getUcdmId());
 
@@ -46,12 +46,12 @@ public class JwtAuthenticationController {
 
     @PutMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody UserCredentialsDto userCredentialsDto) {
-        return ResponseEntity.ok(userDetailsService.save(userCredentialsDto));
+        return ResponseEntity.ok(jwtTokenUtil.generateToken(userDetailsService.save(userCredentialsDto).getUcdmId()));
     }
 
     private void authenticate(String username, String password) throws Exception {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password, null));
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e) {
