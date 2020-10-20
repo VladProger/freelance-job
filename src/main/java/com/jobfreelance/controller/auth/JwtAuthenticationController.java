@@ -15,7 +15,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,7 +43,7 @@ public class JwtAuthenticationController {
 
     }
 
-    @PutMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody UserCredentialsDto userCredentialsDto) {
         return ResponseEntity.ok(jwtTokenUtil.generateToken(userDetailsService.save(userCredentialsDto).getUcdmId()));
     }

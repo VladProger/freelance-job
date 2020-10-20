@@ -32,7 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    private final List<String> EXCLUDE_ENDPOINTS = Arrays.asList("/", "/*", "/swagger-ui.html", "/*swagger-resources/**");
+    private final List<String> EXCLUDE_ENDPOINTS = Arrays.asList("/", "/**", "/swagger-ui.html", "/*swagger-resources/**");
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
